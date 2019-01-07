@@ -1,14 +1,14 @@
 {
-  "main.js": "/JacquesFernandes/scot-calendar.git/static/js/main.8683d352.chunk.js",
-  "main.js.map": "/JacquesFernandes/scot-calendar.git/static/js/main.8683d352.chunk.js.map",
-  "static/css/1.d8415523.chunk.css": "/JacquesFernandes/scot-calendar.git/static/css/1.d8415523.chunk.css",
-  "static/js/1.cbf45d99.chunk.js": "/JacquesFernandes/scot-calendar.git/static/js/1.cbf45d99.chunk.js",
-  "static/js/1.cbf45d99.chunk.js.map": "/JacquesFernandes/scot-calendar.git/static/js/1.cbf45d99.chunk.js.map",
-  "runtime~main.js": "/JacquesFernandes/scot-calendar.git/static/js/runtime~main.d32b5125.js",
-  "runtime~main.js.map": "/JacquesFernandes/scot-calendar.git/static/js/runtime~main.d32b5125.js.map",
-  "static/media/semantic.min.css": "/JacquesFernandes/scot-calendar.git/static/media/brand-icons.a1a749e8.svg",
-  "static/css/1.d8415523.chunk.css.map": "/JacquesFernandes/scot-calendar.git/static/css/1.d8415523.chunk.css.map",
-  "index.html": "/JacquesFernandes/scot-calendar.git/index.html",
-  "precache-manifest.cbc8b8dd1c47fd7ab57988fe7a6c5719.js": "/JacquesFernandes/scot-calendar.git/precache-manifest.cbc8b8dd1c47fd7ab57988fe7a6c5719.js",
-  "service-worker.js": "/JacquesFernandes/scot-calendar.git/service-worker.js"
+  "main.js": "/JacquesFernandes/scot-calendar/static/js/main.5f19e359.chunk.js",
+  "main.js.map": "/JacquesFernandes/scot-calendar/static/js/main.5f19e359.chunk.js.map",
+  "static/css/1.bf2e9c3d.chunk.css": "/JacquesFernandes/scot-calendar/static/css/1.bf2e9c3d.chunk.css",
+  "static/js/1.4e8a49f0.chunk.js": "/JacquesFernandes/scot-calendar/static/js/1.4e8a49f0.chunk.js",
+  "static/js/1.4e8a49f0.chunk.js.map": "/JacquesFernandes/scot-calendar/static/js/1.4e8a49f0.chunk.js.map",
+  "runtime~main.js": "/JacquesFernandes/scot-calendar/static/js/runtime~main.0afc4766.js",
+  "runtime~main.js.map": "/JacquesFernandes/scot-calendar/static/js/runtime~main.0afc4766.js.map",
+  "static/media/semantic.min.css": "/JacquesFernandes/scot-calendar/static/media/brand-icons.a1a749e8.svg",
+  "static/css/1.bf2e9c3d.chunk.css.map": "/JacquesFernandes/scot-calendar/static/css/1.bf2e9c3d.chunk.css.map",
+  "index.html": "/JacquesFernandes/scot-calendar/index.html",
+  "precache-manifest.9172a44afb51048c38566e5ff0ba0446.js": "/JacquesFernandes/scot-calendar/precache-manifest.9172a44afb51048c38566e5ff0ba0446.js",
+  "service-worker.js": "/JacquesFernandes/scot-calendar/service-worker.js"
 }
