@@ -65,7 +65,7 @@ class CalCell extends React.Component {
       return(
         <Label
           content="Next Holiday"
-          detail={this.props.nextHoliday.name}
+          detail={this.props.nextHoliday.name + " ("+this.props.nextHoliday.date+"/"+this.props.nextHoliday.month+")"}
           size="large"
           color="blue"
           icon="heart outline"
