@@ -25,7 +25,8 @@ class Calendar extends React.Component {
   componentDidMount() {
     axios.get("https://www.gov.uk/bank-holidays.json")
     .then(({ data }) => {
-      let scottishHolidays = _.uniqBy(data.scotland.events, (item) => item.title);
+      let currentYear = (new Date()).getFullYear();
+      let scottishHolidays = _.filter(data.scotland.events, (item) => (_.includes(item.date, currentYear))); // get holidays only for the current year
       let holidays = _.map(scottishHolidays, (holiday) => {
         let holiDate = new Date(holiday.date);
         return({

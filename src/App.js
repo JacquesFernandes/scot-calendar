@@ -14,7 +14,6 @@ import NotFound from './containers/NotFound.js';
 class App extends React.Component {
 
   render() {
-    console.log("APP PROPS:",this.props);
     return(
       <div style={{margin:"0.5em"}} >
         <Card fluid >

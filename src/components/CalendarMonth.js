@@ -17,6 +17,7 @@ class CalendarMonth extends React.Component {
     };
 
     this.generateCalendarWeeks = this.generateCalendarWeeks.bind(this);
+    this.generateWeekRow = this.generateWeekRow.bind(this);
   }
 
   componentDidUpdate(){
@@ -72,13 +73,27 @@ class CalendarMonth extends React.Component {
   }
 
   generateWeekRow(week, weekIndex) {
+    let holidays = this.props.holidays;
+    
+    function getNextHoliday(date) {
+      let nextHoliday = null;
+
+      _.forEach(holidays, (holiday) => {
+        if(holiday.date > date.getDate() && nextHoliday === null){
+          nextHoliday = holiday;
+        }
+      });
+
+      return(nextHoliday);
+    }
+
     return(
       <Table.Row key={"week_"+weekIndex}>
         {
           _.map(week, (date, index) => {
             if(date){
               return(
-                <CalCell date={date.getDate()} key={"date_"+index} />
+                <CalCell holiday={_.find(holidays, {date: date.getDate()})} nextHoliday={getNextHoliday(date)} date={date} key={"date_"+index} />
               );
             }
             else{
@@ -93,7 +108,6 @@ class CalendarMonth extends React.Component {
   }
 
   render() {
-    console.log("PROPS:",this.props);
     return(
       <Table celled unstackable textAlign="center" >
         <Table.Header>
