@@ -7,6 +7,13 @@ import {
   Label,
 } from 'semantic-ui-react';
 
+import DateItem from './DateItem.js';
+import AddItem from './AddItem.js';
+import {
+  getItemsForDate,
+  storeItem,
+} from '../utils/storage.js';
+
 class CalCell extends React.Component {
 
   constructor(props){
@@ -14,17 +21,36 @@ class CalCell extends React.Component {
 
     this.state={
       isModalOpen: false,
+      modalItems: getItemsForDate(this.props.date) || [],
     };
 
     this.handleClick = this.handleClick.bind(this);
     this.handleCloseClick = this.handleCloseClick.bind(this);
+    this.generateModalItem = this.generateModalItem.bind(this);
     this.getModalFormattedDateString = this.getModalFormattedDateString.bind(this);
+    this.onItemAdd = this.onItemAdd.bind(this);
+  }
+
+  componentDidUpdate(prevProps) {
+    let stateObj = {};
+
+    if(prevProps.date !== this.props.date){
+      stateObj = {
+        ...stateObj,
+        modalItems: getItemsForDate(this.props.date),
+      };
+    }
+
+    if(!_.isEmpty(stateObj)){
+      this.setState(stateObj);
+    }
   }
 
   handleClick(event, data) {
     this.setState({
       isModalOpen: true,
-    })
+      modalItems: getItemsForDate(this.props.date)
+    });
   }
 
   handleCloseClick() {
@@ -82,6 +108,22 @@ class CalCell extends React.Component {
     }
   }
 
+  onItemAdd(content) {
+    storeItem(this.props.date,content);
+    this.setState({
+      modalItems: [...this.state.modalItems, content],
+    });
+  }
+
+  generateModalItem(data, index) {
+    return(
+      <DateItem
+        key={"DI_"+index}
+        content={this.state.modalItems[index]}
+      />
+    );
+  }
+
   render() {
 
     return(
@@ -90,18 +132,29 @@ class CalCell extends React.Component {
           <Table.Cell
             style={{marginTop:"0.5em", cursor:(this.props.date)? "pointer" : null}}
             onClick={(this.props.date)? this.handleClick : null}
-            active={!_.isEmpty(this.props.holiday)}
+            active={!_.isEmpty(this.props.holiday) || !_.isEmpty(this.state.modalItems)}
             >
             {(this.props.date)? this.props.date.getDate() : null}
           </Table.Cell>
         }
         closeIcon={<Icon name="close" onClick={this.handleCloseClick} />}
         open={this.state.isModalOpen}
+        closeOnDimmerClick
         >
         <Modal.Header content={this.getModalFormattedDateString()} />
         <Modal.Content>
           {this.generateHolidayLabel()}
         </Modal.Content>
+        <Table unstackable >
+          <Table.Body>
+            {
+              _.map(this.state.modalItems,this.generateModalItem)
+            }
+            <AddItem 
+              onItemAdd={this.onItemAdd} 
+            />
+          </Table.Body>
+        </Table>
       </Modal>
     );
   }
