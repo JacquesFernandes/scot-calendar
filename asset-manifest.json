@@ -1,14 +1,14 @@
 {
-  "main.js": "/JacquesFernandes/scot-calendar/static/js/main.5f19e359.chunk.js",
-  "main.js.map": "/JacquesFernandes/scot-calendar/static/js/main.5f19e359.chunk.js.map",
-  "static/css/1.bf2e9c3d.chunk.css": "/JacquesFernandes/scot-calendar/static/css/1.bf2e9c3d.chunk.css",
-  "static/js/1.4e8a49f0.chunk.js": "/JacquesFernandes/scot-calendar/static/js/1.4e8a49f0.chunk.js",
-  "static/js/1.4e8a49f0.chunk.js.map": "/JacquesFernandes/scot-calendar/static/js/1.4e8a49f0.chunk.js.map",
-  "runtime~main.js": "/JacquesFernandes/scot-calendar/static/js/runtime~main.0afc4766.js",
-  "runtime~main.js.map": "/JacquesFernandes/scot-calendar/static/js/runtime~main.0afc4766.js.map",
-  "static/media/semantic.min.css": "/JacquesFernandes/scot-calendar/static/media/brand-icons.a1a749e8.svg",
-  "static/css/1.bf2e9c3d.chunk.css.map": "/JacquesFernandes/scot-calendar/static/css/1.bf2e9c3d.chunk.css.map",
-  "index.html": "/JacquesFernandes/scot-calendar/index.html",
-  "precache-manifest.9172a44afb51048c38566e5ff0ba0446.js": "/JacquesFernandes/scot-calendar/precache-manifest.9172a44afb51048c38566e5ff0ba0446.js",
-  "service-worker.js": "/JacquesFernandes/scot-calendar/service-worker.js"
+  "main.js": "/scot-calendar/static/js/main.d21e646c.chunk.js",
+  "main.js.map": "/scot-calendar/static/js/main.d21e646c.chunk.js.map",
+  "static/css/1.ee38d024.chunk.css": "/scot-calendar/static/css/1.ee38d024.chunk.css",
+  "static/js/1.9dc23930.chunk.js": "/scot-calendar/static/js/1.9dc23930.chunk.js",
+  "static/js/1.9dc23930.chunk.js.map": "/scot-calendar/static/js/1.9dc23930.chunk.js.map",
+  "runtime~main.js": "/scot-calendar/static/js/runtime~main.d9b988c9.js",
+  "runtime~main.js.map": "/scot-calendar/static/js/runtime~main.d9b988c9.js.map",
+  "static/media/semantic.min.css": "/scot-calendar/static/media/brand-icons.a1a749e8.svg",
+  "static/css/1.ee38d024.chunk.css.map": "/scot-calendar/static/css/1.ee38d024.chunk.css.map",
+  "index.html": "/scot-calendar/index.html",
+  "precache-manifest.59b175d549c97a9b47a7ab2e04cd09a0.js": "/scot-calendar/precache-manifest.59b175d549c97a9b47a7ab2e04cd09a0.js",
+  "service-worker.js": "/scot-calendar/service-worker.js"
 }

@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/3.6.3/workbox-sw.js");
 
 importScripts(
-  "/JacquesFernandes/scot-calendar/precache-manifest.9172a44afb51048c38566e5ff0ba0446.js"
+  "/scot-calendar/precache-manifest.59b175d549c97a9b47a7ab2e04cd09a0.js"
 );
 
 workbox.clientsClaim();
@@ -28,7 +28,7 @@ self.__precacheManifest = [].concat(self.__precacheManifest || []);
 workbox.precaching.suppressWarnings();
 workbox.precaching.precacheAndRoute(self.__precacheManifest, {});
 
-workbox.routing.registerNavigationRoute("/JacquesFernandes/scot-calendar/index.html", {
+workbox.routing.registerNavigationRoute("/scot-calendar/index.html", {
   
   blacklist: [/^\/_/,/\/[^\/]+\.[^\/]+$/],
 });
