@@ -15,22 +15,29 @@ class CalendarMonth extends React.Component {
       currentMonth: this.props.currentMonth,
       weeks: this.generateCalendarWeeks(this.props.currentMonth),
     };
-    
+
     this.generateCalendarWeeks = this.generateCalendarWeeks.bind(this);
   }
 
-  componentDidUpdate(prevProps){
+  componentDidUpdate(){
+    let stateObj = {};
+
     if(this.state.currentMonth !== this.props.currentMonth){
-      this.setState({
+      stateObj = {
+        ...stateObj,
         currentMonth: this.props.currentMonth,
         weeks: this.generateCalendarWeeks(this.props.currentMonth),
-      });
+      };
+    }
+
+    if(!_.isEmpty(stateObj)){
+      this.setState(stateObj);
     }
   }
 
   generateCalendarWeeks(month=this.state.currentMonth) {
     let date = new Date();
-    date.setMonth(month, 1);
+    date.setMonth(month, 1); // set date object to point to the first date of the month
 
     let dateList = [];
     while(date.getMonth() === this.props.currentMonth){
@@ -40,7 +47,7 @@ class CalendarMonth extends React.Component {
 
     let weeks = [];
     let weekCounter = 0;
-    _.forEach(dateList, (date) => {
+    _.forEach(dateList, (date) => { // create and add lists of the weeks for this month
       if(_.isArray(weeks[weekCounter])){
         weeks[weekCounter].push(date);
       }
@@ -53,11 +60,11 @@ class CalendarMonth extends React.Component {
       }
     });
     
-    while(weeks[0].length < 7){
+    while(weeks[0].length < 7){ // pad first week with nulls, if needed
       weeks[0].unshift(null);
     }
 
-    while(weeks[weeks.length-1].length < 7){
+    while(weeks[weeks.length-1].length < 7){ // pad last week with nulls, if needed
       weeks[weeks.length-1].push(null);
     }
 
@@ -86,6 +93,7 @@ class CalendarMonth extends React.Component {
   }
 
   render() {
+    console.log("PROPS:",this.props);
     return(
       <Table celled unstackable textAlign="center" >
         <Table.Header>

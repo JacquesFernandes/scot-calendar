@@ -15,6 +15,7 @@ class Calendar extends React.Component {
     
     this.state = {
       currentMonthNumber: (new Date()).getMonth(),
+      currentMonthHolidays: [],
       holidays: [],
     };
 
@@ -24,7 +25,7 @@ class Calendar extends React.Component {
   componentDidMount() {
     axios.get("https://www.gov.uk/bank-holidays.json")
     .then(({ data }) => {
-      let scottishHolidays = data.scotland.events;
+      let scottishHolidays = _.uniqBy(data.scotland.events, (item) => item.title);
       let holidays = _.map(scottishHolidays, (holiday) => {
         let holiDate = new Date(holiday.date);
         return({
@@ -36,6 +37,7 @@ class Calendar extends React.Component {
 
       this.setState({
         holidays,
+        currentMonthHolidays: _.filter(holidays, (holiday) => (holiday.month === this.state.currentMonthNumber)),
       });
     })
     .catch((err) => {
@@ -46,7 +48,8 @@ class Calendar extends React.Component {
   handleMonthUpdate(newMonth) {
     if(_.isNumber(newMonth) && newMonth >= 0 && newMonth <= 11){
       this.setState({
-        currentMonthNumber: newMonth
+        currentMonthNumber: newMonth,
+        currentMonthHolidays: _.filter(this.state.holidays, (holiday) => (holiday.month === newMonth)),
       });
     }
   }
@@ -60,7 +63,7 @@ class Calendar extends React.Component {
           </Grid.Row>
           <Grid.Row columns={1} centered >
             <Grid.Column>
-              <CalendarMonth currentMonth={this.state.currentMonthNumber} holidays={this.state.holidays} />
+              <CalendarMonth currentMonth={this.state.currentMonthNumber} holidays={this.state.currentMonthHolidays} />
             </Grid.Column>
           </Grid.Row>
         </Grid>
