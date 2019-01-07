@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/3.6.3/workbox-sw.js");
 
 importScripts(
-  "/JacquesFernandes/scot-calendar.git/precache-manifest.36bfc5267c5d834d628204d3fb4b1f7d.js"
+  "/JacquesFernandes/scot-calendar.git/precache-manifest.cbc8b8dd1c47fd7ab57988fe7a6c5719.js"
 );
 
 workbox.clientsClaim();
