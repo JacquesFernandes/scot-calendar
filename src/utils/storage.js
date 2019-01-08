@@ -45,6 +45,7 @@ function getItemsForDate(date) {
   }
 }
 
+
 function getItemsForMonth(monthIndex) {
   let keys = _.filter(_.keys(sessionStorage), (key) => (_.split(key,"/").pop() === String(monthIndex)));
   return _.map(keys, getItemsForDate);
@@ -56,9 +57,16 @@ function editItemForDateIndex(date, index, content) {
   sessionStorage.setItem(generateKeyFromDate(date), JSON.stringify(data));
 }
 
+function clearItemForDateIndex(date, index) {
+  let data = getItemsForDate(date);
+  let newData = _.filter(data, (list, listIndex) => (index !== listIndex));
+  sessionStorage.setItem(generateKeyFromDate(date), JSON.stringify(newData));
+}
+
 export {
   storeItem,
   getItemsForDate,
   getItemsForMonth, 
   editItemForDateIndex,
+  clearItemForDateIndex,
 };

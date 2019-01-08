@@ -12,6 +12,8 @@ import AddItem from './AddItem.js';
 import {
   getItemsForDate,
   storeItem,
+  editItemForDateIndex,
+  clearItemForDateIndex,
 } from '../utils/storage.js';
 
 class CalCell extends React.Component {
@@ -29,6 +31,8 @@ class CalCell extends React.Component {
     this.generateModalItem = this.generateModalItem.bind(this);
     this.getModalFormattedDateString = this.getModalFormattedDateString.bind(this);
     this.onItemAdd = this.onItemAdd.bind(this);
+    this.onItemSave = this.onItemSave.bind(this);
+    this.onItemClear = this.onItemClear.bind(this);
   }
 
   componentDidUpdate(prevProps) {
@@ -115,17 +119,33 @@ class CalCell extends React.Component {
     });
   }
 
+  onItemSave(index, content) {
+    editItemForDateIndex(this.props.date, index, content);
+    this.setState({
+      modalItems: getItemsForDate(this.props.date),
+    });
+  }
+
+  onItemClear(index) {
+    clearItemForDateIndex(this.props.date, index);
+    this.setState({
+      modalItems: getItemsForDate(this.props.date),
+    });
+  }
+
   generateModalItem(data, index) {
     return(
       <DateItem
         key={"DI_"+index}
+        index={index}
         content={this.state.modalItems[index]}
+        onItemSave={this.onItemSave}
+        onItemClear={this.onItemClear}
       />
     );
   }
 
   render() {
-
     return(
       <Modal
         trigger={
